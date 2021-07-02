@@ -15,8 +15,8 @@ class App {
   	}
 
 	render() {
-		new HeaderInput(this.header, this.eventChangeStyleForAll, this.eventAddTodo).render();
-		new TodoList(this.container).render(this.todoList, this.eventRemove, this.eventChangeTodo, this.eventChangeStyle);
+		new HeaderInput(this.header, this.eventChangeStyleForAll, this.eventAddTodo.bind(this)).render();
+		new TodoList(this.container).render(this.todoList, this.eventChangeStyle, this.eventChangeTodo, this.eventRemove);
 	}
 
 	eventChangeStyleForAll(event) {
@@ -80,7 +80,7 @@ class App {
     }
 
     eventAddTodo(event) {
-		console.log(this.todoList);
+		// console.log(this.todoList);
 
         if(event.keyCode === 13 && event.target.value) {
             
@@ -89,8 +89,10 @@ class App {
                 isChecked: false
             });
 
-            event.target.value = '';    
-            this.render();
+            event.target.value = '';  
+			
+			
+            TodoList(this.container).render(this.todoList, this.eventChangeStyle, this.eventChangeTodo, this.eventRemove);
         }
     }
 

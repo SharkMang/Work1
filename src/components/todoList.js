@@ -12,7 +12,7 @@ class TodoList {
 	    this.section.appendChild(this.ul);
     }
 
-    render(todoList, handleDelTodo, handleNewTodo, handleChackbox) {
+    render(todoList, handleChackbox, handleNewTodo, handleDelTodo ) {
         
         this.ul.innerHTML = '';
     

@@ -1,10 +1,10 @@
 class HeaderInput {
-    constructor(header, handleSelectAll, handleAddTodo) {
+    constructor(header, handleCheckbox, handleAddTodo) {
         this.header = header;
 
         this.checkBoxAll = document.createElement('input');
 	    this.checkBoxAll.type = 'checkbox';
-        this.checkBoxAll.addEventListener('change', handleSelectAll);
+        this.checkBoxAll.addEventListener('change', handleCheckbox);
 
         this.input = document.createElement('input');
         this.input.type = 'text';
